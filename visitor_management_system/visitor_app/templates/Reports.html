@@ -1,0 +1,232 @@
+<!-- reports.html -->
+
+{% extends 'C:\Users\LENOVO\Downloads\VMSsayan\visitor_management_system\visitor_app\templates\base_generic.html' %}
+{% load static%}
+ <!-- Extend the base template if available -->
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;1,500&family=Salsa&display=swap" rel="stylesheet">
+    <title>EITS-VMS-Reports</title>
+    <style>
+        html,
+        body {
+            font-family: 'Salsa', cursive;
+            height: 100%;
+            margin: 0;
+            background-image: url('images/image11.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            background-color:  rgb(156, 156, 214); /* Set background color */;
+        }
+
+        .navbar {
+            padding: 15px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.8);
+            border: none;
+            border-radius: 15px;
+        }
+
+        .navbar-brand img {
+            width: 50px; /* Adjust the size of the logo */
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: white; /* Set default color */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #000; 
+        }
+
+        .navbar-nav .nav-item:hover {
+            background-color: #fff; /* Set your desired background color */
+        }
+
+        .navbar-toggler-icon {
+            background-color: white;
+        } 
+
+        .card {
+            transition: background-color 0.8s ease;
+            border-radius: 15px;
+            margin-top: 30px;
+            padding: 20px; /* Add padding for better spacing */
+            background-color: rgba(255, 255, 255, 0.7); /* Set form background color */
+
+        }
+
+        .card-body {
+            display: flex;
+            flex-wrap: wrap; /* Allow flex items to wrap */
+            gap: 10px;
+            padding-left: 80px;
+        }
+
+        .card-body label {
+            display: inline-block;
+            margin-bottom: 3px;
+        }
+
+        .card-body input {
+            width: 100%; /* Adjust width as needed */
+            height: 40px; /* Adjust height as needed */
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            text-transform: capitalize;
+        }
+
+        
+        .card-body .col-md-4,
+.card-body .col-md-6 {
+    min-width: 0;
+}
+
+@media (min-width: 768px) {
+    .card-body .col-md-4 {
+        flex: 0 0 calc(50% - 10px); /* Two columns with 10px gap */
+    }
+    .card-body .col-md-6 {
+        flex: 0 0 calc(50% - 10px); /* Two columns with 10px gap */
+    }
+}
+
+@media (min-width: 992px) {
+    .card-body .col-md-4 {
+        flex: 0 0 calc(33.3333% - 10px); /* Three columns with 10px gap */
+    }
+    .card-body .col-md-6 {
+        flex: 0 0 calc(66.6667% - 10px); /* Two columns with 10px gap */
+    }
+}
+
+.card-header{
+    text-align:center;
+}
+
+.col-md-6 {
+    padding-left: 10px;
+}
+
+        .card-body button {
+            width: 100%; /* Adjust width as needed */
+            height: 40px; /* Adjust height as needed */
+            border-radius: 3px;
+        }
+
+        .Submit {
+            font-size: 15px;
+            padding: 5px 20px;
+            border-radius: 2rem;
+            font-family: 'Salsa', cursive;
+        }
+
+        .Submit:hover {
+            background-color: #0074A6; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo.jpeg" alt="VMS Logo"> 
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    ☰
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="visitordetails.php">Visitor Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="postaltable.php">Postal Service Datewise Report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">User Login/Logout Report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="multidayReports.php">Multiple Day Visitor Pass Report</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+     <form method="post">
+        <div class="card">
+            <div class="card-header">
+                Reports
+            </div>
+            <label class="checkbox-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Without Photo of Visitor
+            </label>
+            <div class="card-body">
+                
+
+                <div class="dropdown col-md-4">
+                    <label style="padding-left:20px;">Select Dept Name</label>
+                                   
+                    <select type="select" name="deptname" id="options"  class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" onchange="updateButton()"> 
+                        <option value="">Select Dept Name</option>
+                        <option value="Software">Software</option>
+                        <option value="Hr">Hr</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+
+                <div class="dropdown col-md-4">
+                    <label style="padding-left:20px;">Select Staff Name</label>
+                    <input type="staffname" class="form-control col-md-4" id="staffname" name="staffname">
+                </div>
+
+              <div class="dropdown col-md-6">
+                <label for="FromDate" class="col-md-6">Select From Date:</label>
+                <input type="date" value="<?php if(isset($_GET['from_date'])){echo $_GET['from_date'];}else{} ?>" class="form-control col-md-6" id="FromDate" name="from_date">
+
+                <label for="ToDate" class="col-md-6">Select To Date:</label>
+                <input type="date" value="<?php if(isset($_GET['to_date'])){echo $_GET['to_date'];}else{} ?>" class="form-control col-md-6" id="ToDate" name="to_date">
+                <button class="Submit">Print</button>
+              </div>
+            
+            </div>
+       </div>
+      </form>
+    </div>
+    <script>
+    $( ".selector" ).date({
+  dateFormat: "yy-mm-dd"
+});
+
+// Get or set the dateFormat option, after initialization:
+
+// Getter
+var dateFormat = $( ".selector" ).date( "option", "dateFormat" );
+ 
+// Setter
+$( ".selector" ).date( "option", "dateFormat", "yy-mm-dd" );
+</script>
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>
+{% endblock %}

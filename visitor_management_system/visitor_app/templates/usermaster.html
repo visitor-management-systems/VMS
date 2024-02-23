@@ -1,0 +1,159 @@
+{% extends 'C:\Users\LENOVO\Downloads\VMSsayan\visitor_management_system\visitor_app\templates\base_generic.html' %}
+{% load static%}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;1,500&family=Salsa&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("image11.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Salsa', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(156, 156, 214);/* Background color with opacity */
+            color: black;
+        }
+        h1 {
+            text-align: center;
+            color: black;
+        }
+        form {
+            width: 80%;
+            max-width: 400px;
+            margin: 100px auto;
+            border-radius: 12px;
+            border: 2px solid white;
+            padding: 20px 25px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        input[type=text], input[type=password], select {
+            width: calc(100% - 36px);
+            margin: 10px 0;
+            border-radius: 2rem;
+            padding: 10px 18px;
+            box-sizing: border-box;
+            font-family: 'Salsa', cursive;
+        }
+        .btn {
+            font-family: 'Salsa', cursive;
+            background-color: white;
+            color: black;
+            padding: 10px 10px;
+            border-radius: 2rem;
+            width: calc(20% - 10px);
+            font-size: 12px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            opacity: 0.6;
+            background-color: #0074A6;
+        }
+        .table-container {
+            width: 80%;
+            margin: 50px auto;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post" id="userform">
+        <!-- Headings for the form -->
+        <h1>User Master</h1>
+        <!-- Main container for all inputs -->
+        <div class="mainContainer">
+            <!-- name -->
+            <label>Name</label>
+            <input type="text" placeholder="Enter name" name="name">
+            <label>UserName</label>
+            <input type="text" placeholder="Enter username" name="username">
+            <!-- Password -->
+            <label>Your password</label>
+            <input type="password" placeholder="Enter Password" name="password">
+            <label>Confirm password</label>
+            <input type="password" placeholder="Enter confirm password" name="confirmpassword"><br>
+            <label>Role</label><br>
+            <select class="form-select input_field" name="role">
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+                <option value="Security">Security</option>
+            </select><br><br>
+            <!-- Submit button -->
+            <button type="button" class="btn btn-primary" onclick="saveButton()">Save</button>
+            <button type="update" class="btn">Update</button>
+            <button type="reset" class="btn">Reset</button>
+            <button type="close" class="btn">Close</button>
+        </div>
+    </form>
+
+    <div class="table-container">
+        <table id="userTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>UserName</th>
+              <th>Password</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+    </div>
+    <script>
+        
+    function saveButton() {
+    var form = document.getElementById('userform');
+    var formdata = new FormData(form);
+
+    var tablebody = document.querySelector('#userTable tbody');
+
+    var newRow = tablebody.insertRow();
+
+    for (var pair of formdata.entries()) {
+        var key = pair[0];
+        var value = pair[1];
+
+        if (key !== 'confirmpassword') { // Skip the confirm password field
+            var newCell = newRow.insertCell();
+            if (key === 'password') { // Check if it's the password field
+                // Replace actual value with asterisks (*)
+                newCell.textContent = '*'.repeat(value.length);
+            } else {
+                newCell.textContent = value;
+            }
+        }
+    }
+}
+
+
+    </script>
+</body>
+</html>
+
+{% endblock %}

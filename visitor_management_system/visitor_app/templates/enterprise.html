@@ -1,0 +1,354 @@
+{% extends 'C:\Users\LENOVO\Downloads\VMSsayan\visitor_management_system\visitor_app\templates\base_generic.html' %}
+{% load static%}
+<!-- Extend the base template if available -->
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masters</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;1,500&family=Salsa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'enter.css' %}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(156, 156, 214); /* Set background color */
+            font-family: 'Salsa', cursive;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        form {
+            max-width: 800px; /* Added max-width for better responsiveness */
+            margin: 0 auto; /* Center the form */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: larger;
+            margin-top: 20px;
+        }
+
+        input {
+            width: calc(100% - 20px); /* Adjusted input width */
+            height: 40px;
+            outline: none;
+            border: 1px solid black;
+            border-radius: 7px;
+            padding: 5px 10px; /* Adjusted padding for better appearance */
+            box-sizing: border-box;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            border: 1px solid black;
+            border-radius: 9px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0075A8;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .wrapper {
+            display: inline-block;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border: 5px dashed black;
+            border-radius: 20px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .wrapper .image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: black;
+        }
+
+        .wrapper .image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .wrapper .icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+        }
+
+        .wrapper .text {
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            margin-top: 10px;
+        }
+
+        #cancel-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: red;
+            cursor: pointer;
+            display: none;
+        }
+
+        .file-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 8px 0;
+            color: #fff;
+            background-color: #87CEEA;
+            display: none;
+            text-align: center;
+        }
+
+        #default-btn {
+            display: none;
+        }
+
+        #custom-btn {
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            border: 1px solid black;
+            border-radius: 9px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #custom-btn:hover {
+            background-color: #0075A8;
+            color: white;
+        }
+
+        .output-table {
+            margin-top: 30px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .output-table th, .output-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .output-table th {
+            background-color: #f2f2f2;
+        }
+
+        @media screen and (max-width: 768px) {
+            input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Enterprise Master</h1>
+</div>
+<form id="enterprise-form">
+    <table>
+        <tr>
+            <td><b>Enterprise Name</b></td>
+            <td><input type="text" placeholder="iLogitek Business Solutions" name="enterprise_name"></td>
+        </tr>
+        <tr>
+            <td><b>Address 1</b></td>
+            <td><input type="text" placeholder="#000, 'heritage 10', opt to fresh mart" name="address_1"></td>
+        </tr>
+        <tr>
+            <td><b>Address 2</b></td>
+            <td><input type="text" placeholder="6th cross, BMPL layout" name="address_2"></td>
+        </tr>
+        <tr>
+            <td><b>Address 3</b></td>
+            <td><input type="text" placeholder="New Bpl Road" name="address_3"></td>
+        </tr>
+        <tr>
+            <td><b>City</b></td>
+            <td><input type="text" placeholder="Bangalore" name="city"></td>
+        </tr>
+        <tr>
+            <td><b>State</b></td>
+            <td><input type="text" placeholder="Karnataka" name="state"></td>
+        </tr>
+        <tr>
+            <td><b>Pincode</b></td>
+            <td><input type="text" placeholder="560037" name="pincode"></td>
+        </tr>
+        <tr>
+            <td><b>Tel.No.(stdcode)</b></td>
+            <td>
+                <input type="text" placeholder="" name="" class="small-input">
+                <b>(NO) <input type="text" placeholder="" name="" class="big-input"></b>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Fax.No.</b></td>
+            <td><input type="text" placeholder="0" name="fax_no"></td>
+        </tr>
+        <tr>
+            <td><b>E-mail</b></td>
+            <td><input type="email" placeholder="abc@gmail.com" name="email"></td>
+        </tr>
+        <tr>
+            <td><b>Website</b></td>
+            <td><input type="text" placeholder="www.iLogitek Bus" name="website"></td>
+        </tr>
+    </table>
+    <div class="container">
+        <div class="wrapper">
+            <div class="image">
+                <span class="icon"><i class="fas fa-cloud-upload-alt"></i></span>
+                <div class="text">No file chosen yet!</div>
+            </div>
+            <input id="default-btn" type="file" hidden>
+            <button onclick="defaultBtnActive()" id="custom-btn">Attach Logo</button>
+            <div id="cancel-btn"><i class="fas fa-times"></i></div>
+            <div class="file-name">File name here</div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button type="button" class="button" onclick="saveEnterprise()">Save</button>
+        <button type="button" class="button">Edit</button>
+        <button type="button" class="button">Close</button>
+        <button type="button" class="button">Reset</button>
+    </div>
+</form>
+
+<table class="output-table" id="output-table" style="display: none;">
+    <tr>
+        <th>Enterprise Name</th>
+        <td id="output-enterprise-name"></td>
+    </tr>
+    <tr>
+        <th>Address 1</th>
+        <td id="output-address-1"></td>
+    </tr>
+    <tr>
+        <th>Address 2</th>
+        <td id="output-address-2"></td>
+    </tr>
+    <tr>
+        <th>Address 3</th>
+        <td id="output-address-3"></td>
+    </tr>
+    <tr>
+        <th>City</th>
+        <td id="output-city"></td>
+    </tr>
+    <tr>
+        <th>State</th>
+        <td id="output-state"></td>
+    </tr>
+    <tr>
+        <th>Pincode</th>
+        <td id="output-pincode"></td>
+    </tr>
+    <tr>
+        <th>Fax.No.</th>
+        <td id="output-fax-no"></td>
+    </tr>
+    <tr>
+        <th>E-mail</th>
+        <td id="output-email"></td>
+    </tr>
+    <tr>
+        <th>Website</th>
+        <td id="output-website"></td>
+    </tr>
+</table>
+
+<script>
+    const defaultBtn = document.querySelector("#default-btn");
+    const customBtn = document.querySelector("#custom-btn");
+    const img = document.querySelector("img");
+
+    function defaultBtnActive() {
+        defaultBtn.click();
+    }
+
+    defaultBtn.addEventListener("change", function () {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const result = reader.result;
+                img.src = result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
+    function saveEnterprise() {
+        const form = document.getElementById("enterprise-form");
+        const table = document.getElementById("output-table");
+
+        // Get form data
+        const formData = new FormData(form);
+
+        // Display form data in table
+        for (const pair of formData.entries()) {
+            const fieldName = pair[0];
+            const fieldValue = pair[1];
+            const outputElement = document.getElementById("output-" + fieldName);
+            if (outputElement) {
+                outputElement.textContent = fieldValue;
+            }
+        }
+
+        // Show output table
+        table.style.display = "table";
+    }
+</script>
+</body>
+</html>
+
+{% endblock %}

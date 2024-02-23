@@ -1,0 +1,358 @@
+{% extends 'C:\Users\LENOVO\Downloads\VMSsayan\visitor_management_system\visitor_app\templates\base_generic.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EITS-VMS-Enterprise-Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+  <style>
+    .div1 {
+    height: 1200px;
+        padding: 20px;
+        background: transparent;
+    }
+
+    .div2 {
+        height: 500px;
+        padding: 10px;
+        background: transparent;
+    }
+
+    h1 {
+        font-size: 50px;
+        color: white;
+    }
+
+    body {
+        background-image: url("{% static 'images/image.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: 'Salsa', cursive;
+    }
+
+    .input_field {
+        background-color: transparent;
+        margin-left: 10px;
+        padding-left: 10px;
+        width: 100%; /* Set width to 100% */
+        max-width: 320px; /* Limit maximum width */
+        height: 40px;
+        border-radius: 100px;
+    }
+
+    input[type=text], select, textarea {
+        background-color: transparent;
+        width: calc(100% - 10px); /* Adjusted width for better responsiveness */
+        padding: 1px;
+        border: 2px solid #ccc;
+        border-radius: 20px;
+       
+        color: black;
+        text-align: center;
+    }
+
+    .container-fluid {
+        width: 80%; /* Adjusted width for better responsiveness */
+        margin: auto;
+        color: whitesmoke;
+        background-color: rgb(156, 156, 214);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        padding: 20px 25px;
+        height: 200%;
+    }
+
+    .form-buttons {
+    margin-top: 20px; /* Adjust margin as needed */
+    text-align: center;
+}
+
+.form-buttons .btn {
+    margin: 0 5px; /* Adjust margin between buttons */
+    background-color: transparent;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    border: 1px solid black;
+}
+
+.form-buttons .btn:hover {
+    opacity: 0.6;
+    cursor: pointer;
+    background-color: rgb(219, 161, 161);
+}
+    button {
+        background-color: white;
+        color: black;
+        padding: 10px 20px; /* Adjusted padding for better button appearance */
+        border-radius: 20px;
+        font-size: 12px;
+        margin-left: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.6;
+        cursor: pointer;
+        background-color: black;
+    }
+
+    /* Media queries for the responsiveness of the page */
+    @media screen and (max-width: 768px) {
+        .container-fluid {
+            width: 100%; /* Full width on smaller screens */
+        }
+
+        .btn, button {
+            width: 100%; /* Full width buttons on smaller screens */
+             
+        }
+
+        .div1 {
+            padding: 10px; /* Adjusted padding for better spacing */
+        }
+
+        .div2 {
+            padding: 10px; /* Adjusted padding for better spacing */
+        }
+
+        .snap {
+            margin-left: 0; /* Center the camera on smaller screens */
+            margin-top: 20px; /* Added margin for better spacing */
+            width: 100%; /* Full width on smaller screens */
+        }
+    }
+    .camera
+    {
+        text-align: center;
+        margin-top: 900px;
+    }
+    video
+    {
+        border:  2px solid white;
+        border-radius: 25px;
+        margin-bottom: 10px;
+    }
+    .camerabutton
+    {
+        text-align: center;
+    }
+    #logoPreviewBox {
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        margin-top: 20px;
+        padding: 10px;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <div class="container-fluid" style="font-size: 20px; color:white;">
+        <h1 style="text-align: center;">Enterprise registration</h1>
+        <div class="row">
+            <div class="col-sm-6" style="background:transparent">
+                <div class="div1" style="color:white;">
+                    <form id="enterpriseForm">
+                        <div>
+                            <label>Enterprise Name:</label><br>
+                            <input type="text" class="input_field" id="enterpriseNameInput" name="enterpriseName">
+                        </div>
+                        <div>
+                            <label>Address 1:</label><br>
+                            <input type="text" class="input_field" id="address1Input" name="address1">
+                        </div>
+                        <div>
+                            <label>Address 2:</label><br>
+                            <input type="text" class="input_field" id="address2Input" name="address2">
+                        </div>
+                        <div>
+                            <label>Address 3:</label><br>
+                            <input type="text" class="input_field" id="address3Input" name="address3">
+                        </div>
+                        <div>
+                            <label>City:</label><br>
+                            <input type="text" class="input_field" id="cityInput" name="city">
+                        </div>
+                        <div>
+                            <label>State:</label><br>
+                            <input type="text" class="input_field" id="stateInput" name="state">
+                        </div>
+                        <div>
+                            <label>Pincode:</label><br>
+                            <input type="text" class="input_field" id="pincodeInput" name="pincode">
+                        </div>
+                        <div>
+                            <label>Phone Number:</label><br>
+                            <input type="text" class="input_field" id="phoneNumberInput" name="phoneNumber">
+                        </div>
+                        <div>
+                            <label>Email:</label><br>
+                            <input type="text" class="input_field" id="emailInput" name="email">
+                        </div>
+                        <div>
+                            <label>Website:</label><br>
+                            <input type="text" class="input_field" id="websiteInput" name="website">
+                        </div>
+                        
+                        <div class="form-buttons"> <!-- Add a div to contain the buttons -->
+                            <button class="btn">Submit</button>
+                            <button class="btn">Reset</button>
+                        </div>
+                    </form>
+                    <br><br>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div id="logoPreviewBox">
+                    <label for="logoInput">Select Enterprise Logo:</label><br>
+                    <input type="file" id="logoInput" name="logoInput"><br>
+                    <img id="logoPreview" src="#" alt="Logo Preview" style="max-width: 100px; display: none;"><!-- Preview image will be displayed here -->
+                </div>
+            </div>
+        </div>
+        <div class="row" id="tableRow" style="display: none;">
+            <div class="col-sm-12">
+                <h2>Enterprise Details</h2>
+                <table class="table table-bordered" style="background-color: white;color: black;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Field</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Enterprise Name</td>
+                            <td id="enterpriseName"></td>
+                        </tr>
+                        <tr>
+                            <td>Address 1</td>
+                            <td id="address1"></td>
+                        </tr>
+                        <tr>
+                            <td>Address 2</td>
+                            <td id="address2"></td>
+                        </tr>
+                        <tr>
+                            <td>Address 3</td>
+                            <td id="address3"></td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td id="city"></td>
+                        </tr> 
+                        <tr>
+                          <td>State</td>
+                          <td id="state"></td>
+                        </tr> 
+                        <tr>
+                        <td>Pincode</td>
+                        <td id="pincode"></td>
+                        </tr> 
+                        <tr>
+                            <td>Phone Number</td>
+                            <td id="phoneNumber"></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td id="email"></td>
+                        </tr>
+                        
+                       <tr>
+                       <td>Website</td>
+                       <td id="website"></td>
+                       </tr>
+                        <tr>
+                            <td>Logo</td>
+                            <td><img src="" alt="Enterprise Logo" id="tableLogoImage" style="max-width: 100px;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    <script>
+        const enterpriseForm = document.getElementById('enterpriseForm');
+        const tableEnterpriseName = document.getElementById('enterpriseName');
+        const tableAddress1 = document.getElementById('address1');
+        const tableAddress2 = document.getElementById('address2');
+        const tableAddress3 = document.getElementById('address3');
+        const logoInput = document.getElementById('logoInput');
+        const logoPreview = document.getElementById('logoPreview');
+        const tableLogoImage = document.getElementById('tableLogoImage');
+        const tableRow = document.getElementById('tableRow');
+
+        const tableCity = document.getElementById('city');
+        const tableState = document.getElementById('state');
+        const tablePincode = document.getElementById('pincode');
+        const tablePhoneNumber = document.getElementById('phoneNumber');
+        const tableEmail = document.getElementById('email');
+
+        const tableWebsite = document.getElementById('website');
+        
+    
+        // Function to update table with form values
+        const updateTable = () => {
+            const enterpriseName = enterpriseForm.querySelector('input[name="enterpriseName"]').value;
+            const address1 = enterpriseForm.querySelector('input[name="address1"]').value;
+            const address2 = enterpriseForm.querySelector('input[name="address2"]').value;
+            const address3 = enterpriseForm.querySelector('input[name="address3"]').value;
+
+            const city = enterpriseForm.querySelector('input[name="city"]').value;
+            const state = enterpriseForm.querySelector('input[name="state"]').value;
+            const pincode = enterpriseForm.querySelector('input[name="pincode"]').value;
+            const phoneNumber = enterpriseForm.querySelector('input[name="phoneNumber"]').value;
+            const email = enterpriseForm.querySelector('input[name="email"]').value;
+            const website = enterpriseForm.querySelector('input[name="website"]').value;
+
+            tableCity.textContent = city;
+            tableState.textContent = state;
+            tablePincode.textContent = pincode;
+            tablePhoneNumber.textContent = phoneNumber;
+            tableEmail.textContent = email;
+            tableWebsite.textContent = website;
+    
+            tableEnterpriseName.textContent = enterpriseName;
+            tableAddress1.textContent = address1;
+            tableAddress2.textContent = address2;
+            tableAddress3.textContent = address3;
+    
+            // Update logo in the table
+            tableLogoImage.src = logoPreview.src;
+    
+            // Show table row
+            tableRow.style.display = 'table-row';
+        };
+    
+        // Event listener for form submission
+        enterpriseForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            updateTable();
+        });
+    
+        // Event listener for logo input change
+        logoInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    logoPreview.src = e.target.result;
+                    logoPreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+    
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,124 @@
+<!-- barcode.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;1,500&family=Salsa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Adjust the path based on your file structure -->
+</head>
+<body>
+    <style>
+        body {
+            font-family: 'Salsa', cursive;
+            background-image: url('{% static "images/image.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .card {
+            padding: 20px;
+            border-radius: 20px;
+            width: 400px; /* Set the width of the card */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Added a subtle box shadow */
+            padding-bottom: 5%;
+            backdrop-filter: blur(9px);
+            border: 1px solid white;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            padding-right: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column; /* Adjusted to a column layout for better alignment */
+            align-items: center; /* Center form items */
+            margin-top: 20px; /* Added margin for spacing */
+        }
+
+        table {
+            font-size: 20px;
+            color: white;
+        }
+
+        input {
+            height: 25px;
+            width: 180px;
+            border-radius: 4rem;
+        }
+
+        .button-group {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center; /* Center buttons horizontally */
+            gap: 20px;
+            padding-top: 40px;
+        }
+
+        button {
+            font-size: 15px;
+            padding: 5px 20px;
+            border-radius: 2rem;
+            font-family: 'Salsa', cursive;
+        }
+
+        button:hover {
+            background-color: #0074A6;
+            color: white;
+        }
+    </style>
+
+    <div class="card">
+        <div class="header">
+            <h2>Visitor Login</h2>
+        </div>
+        <form>
+            <table>
+                <tr>
+                    <td>Barcode No:</td>
+                    <td><input type="text" placeholder="" name="" id=""></td>
+                </tr>
+            </table>
+        </form>
+        <div class="button-group">
+            <button onclick="submitForm()">Login</button>
+            <button onclick="resetForm()">Reset</button>
+            <button onclick="closeForm()">Close</button>
+        </div>
+    </div>
+    <script>
+        function submitForm() {
+            alert('Visitor logged in!');
+            // Add additional logic as needed
+        }
+
+        function resetForm() {
+            document.querySelector('input[type="text"]').value = '';
+        }
+
+        function closeForm() {
+            alert('Visitor form closed.');
+            // Add additional logic as needed
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+{% extends 'C:\Users\LENOVO\Downloads\VMSsayan\visitor_management_system\visitor_app\templates\base_generic.html' %}
+{% load static%}
+ <!-- Extend the base template if available -->
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            font-family: "Salsa", cursive;
+        }
+        body{
+            background-image: url('images/image11.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: rgb(156, 156, 214);
+
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            width: 400px;
+            height: 370px;
+            margin: 20px auto; /* Center the card on the page with top margin */
+            text-align: center; /* Center text inside the card */
+            margin-top: 100px;
+            background-color: rgba(255, 255, 255, 0.7);
+            
+
+        }
+        h3{
+           font-size: 30px;
+            color: black;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 30px; /* Add some space between form groups */
+            color: black;
+            font-size: 20px;
+            
+        }
+        h2{
+            color: black;
+            font-size: 15px;
+            
+            
+        }
+        h3{
+            font-size: 30px;
+            color: black;
+        }
+            
+        
+        label{
+            padding-top: 10px;
+        }
+        input{
+            padding: 5px;
+            border-radius: 5px;
+            width: 200px;
+        }
+       
+        button{
+            width: 80px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        button:hover{
+            background-color: #0074A6;
+            color: white
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+<h3> Existing Registration</h3>
+<form action="" method="post">
+<div class="form-group">
+<label for="visitorCompany"><b>Visitor Company</b></label><br><br>
+<input type="text" id="visitorCompany" name="visitorCompany" value="">
+</div>
+<h2><b>OR</b></h2>
+<div class="form-group">
+<label for="visitorMobileNo"><b>Visitor Mobile No.</b></label><br><br>
+<input type="text" id="visitorMobileNo" name="visitorMobileNo" value="">
+</div>
+<button type="submit"><b>Submit</b></button>
+</form>
+</div>
+</body>
+</html>
+
+{% endblock %}

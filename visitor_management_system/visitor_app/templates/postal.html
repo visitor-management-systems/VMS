@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: url("image11.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Salsa', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(156, 156, 214);
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            color: black;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        input[type=text],
+        input[type=password],
+        select {
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            background-color: white;
+            color: black;
+            padding: 10px 10px;
+            border-radius: 50px;
+            margin: 5px;
+            width: calc(25% - 20px);
+            font-size: 14px;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0074a6;
+            color: white;
+        }
+
+        .mainContainer {
+            padding: 10px;
+        }
+
+        /* Center the table */
+        #tableContainer {
+            text-align: center;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white; /* White background */
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="postalForm">
+        <!-- Headings for the form -->
+        <h1>Postal Service</h1>
+        <!-- Main container for all inputs -->
+        <div class="mainContainer">
+            <!-- Type -->
+            <label for="type">Type</label>
+            <select id="type" name="type">
+                <option value="in">In</option>
+                <option value="out">Out</option>
+            </select>
+            <!-- Reg. Date/Time -->
+            <label for="regDateTime">Reg. Date/Time</label>
+            <input type="datetime-local" id="regDateTime" name="regDateTime"><br>
+            <!-- From -->
+            <label for="from">From</label>
+            <input type="text" id="from" name="from">
+            <!-- To -->
+            <label for="to">To</label>
+            <input type="text" id="to" name="to">
+            <!-- Through -->
+            <label for="through">Through</label>
+            <input type="text" id="through" name="through">
+            <!-- Ref. Number -->
+            <label for="refNumber">Ref. Number</label>
+            <input type="text" id="refNumber" name="refNumber">
+            <!-- Contact Person -->
+            <label for="contactPerson">Contact Person</label>
+            <input type="text" id="contactPerson" name="contactPerson">
+            <!-- Mobile Number -->
+            <label for="mobileNumber">Mobile Number</label>
+            <input type="text" id="mobileNumber" name="mobileNumber">
+            <!-- Submit button -->
+            <button type="button" class="btn" onclick="saveFormData()">Save</button>
+            <button type="reset" class="btn">Reset</button>
+            <button type="button" class="btn">Close</button>
+        </div>
+    </form>
+
+    <!-- Table to display form data -->
+    <div id="tableContainer"></div>
+
+    <script>
+        function saveFormData() {
+            // Get form data
+            var type = document.getElementById("type").value;
+            var regDateTime = document.getElementById("regDateTime").value;
+            var from = document.getElementById("from").value;
+            var to = document.getElementById("to").value;
+            var through = document.getElementById("through").value;
+            var refNumber = document.getElementById("refNumber").value;
+            var contactPerson = document.getElementById("contactPerson").value;
+            var mobileNumber = document.getElementById("mobileNumber").value;
+
+            // Create table row with form data
+            var tableRow = "<tr>" +
+                "<td>" + type + "</td>" +
+                "<td>" + regDateTime + "</td>" +
+                "<td>" + from + "</td>" +
+                "<td>" + to + "</td>" +
+                "<td>" + through + "</td>" +
+                "<td>" + refNumber + "</td>" +
+                "<td>" + contactPerson + "</td>" +
+                "<td>" + mobileNumber + "</td>" +
+                "</tr>";
+
+            // Append the table row to the table container
+            document.getElementById("tableContainer").innerHTML = "<h1>Form Data</h1><table border='1'><tr><th>Type</th><th>Reg. Date/Time</th><th>From</th><th>To</th><th>Through</th><th>Ref. Number</th><th>Contact Person</th><th>Mobile Number</th></tr>" + tableRow + "</table>";
+        }
+    </script>
+</body>
+
+</html>

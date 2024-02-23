@@ -1,0 +1,197 @@
+{% extends 'C:\Users\LENOVO\Downloads\VMSsayan\visitor_management_system\visitor_app\templates\base_generic.html' %}
+{% load static%}
+ <!-- Extend the base template if available -->
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;1,500&family=Salsa&display=swap" rel="stylesheet">
+    <title>Multiple Day Login & Logout</title>
+    <link rel="stylesheet" href="dayLogin.css">
+    <style>
+        /* Common styles for all screen sizes */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            color: black;
+            background-image: url('image.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Salsa', cursive;
+            background-color: rgb(156, 156, 214);
+        }
+
+        .bg-dark {
+            color: black;
+        }
+
+        .card {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            margin: 10px;
+            border-radius: 20px;
+            width: 70%;
+            height: 14%;
+            border: 1px solid #fff;
+            margin-left: 12%;
+            margin-top: 6%;
+        }
+
+        .btn1,
+        .btn2 {
+            display: inline-block;
+            background-color: orange;
+            color: black;
+            padding: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            border: 3px solid #000;
+            width: 20%;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-top: 60px;
+        }
+
+        .btn1 {
+            margin-left: 0%;
+            width: 20%;
+            
+        }
+
+        .btn2 {
+            margin-left: 185px;
+            width: 20%;
+        }
+
+        .form-group {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 15px;
+            width: 28%;
+            color: white;
+        }
+
+        input {
+            border-radius: 20px;
+            width: 100%;
+            max-width: 250px;
+            height: 30px;
+        }
+
+        button {
+            margin-left: 10px;
+            border: 2px solid black;
+            width: 90px;
+            height: 30px;
+            outline: none;
+            border-radius: 10px;
+            background-color: white;
+            color: black;
+            font-family: 'Salsa', cursive;
+            margin-top: 40px;
+            text-decoration: none;
+
+        }
+        button[type="submit"] a {
+    text-decoration: none;
+}
+
+
+        .close-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            position: absolute;
+            left: 65%;
+            transform: translateX(-50%);
+            top: 200px;
+            margin-top: 23%;
+        }
+
+        /* Add media query for smaller screens */
+        @media (max-width: 768px) {
+            input,
+            .btn1,
+            .btn2,
+            .form-group {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .close-button {
+                width: 35%;
+                left:30px ;
+                transform: translateX(0);
+                margin-top: 70%;
+                margin-left:25%;
+                
+                
+            }
+        }
+
+        button:hover {
+            background-color: #0074A6;
+            color: white;
+        }
+
+        table {
+            width: 70%;
+            margin: 50px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 45px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: rgb(235, 230, 230);
+            color: black;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <div class="card">
+        <p><b></b></p><br>
+        <a class="btn1" href="{% url 'visitor_app:visitor_registration' %}"><b>New Visitor</b></a>
+        <a class="btn2" href="{% url 'visitor_app:multilogin' %}"><b>Multiple Day Login</b></a><br><br><br>
+        <!-- Form for submit button -->
+        <form action="alldata.php" method="post">
+            <button type="submit"><a href="">Submit</button>
+        </form>
+    
+        <br><br><br><br><br><br><br><br>
+        <button class="close-button"><a href="alldata.php"></a>Close</button>
+    </div>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,416 @@
+{% extends 'C:\Users\LENOVO\Downloads\VMSsayan\visitor_management_system\visitor_app\templates\base_generic.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EITS-VMS-Visitor-Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+  <style>
+    .div1 {
+    height: 1200px;
+        padding: 20px;
+        background: transparent;
+    }
+
+    .div2 {
+        height: 500px;
+        padding: 10px;
+        background: transparent;
+    }
+
+    h1 {
+        font-size: 50px;
+        color: white;
+    }
+
+    body {
+        background-image: url("{% static 'images/image.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: 'Salsa', cursive;
+    }
+
+    .input_field {
+        background-color: transparent;
+        margin-left: 10px;
+        padding-left: 10px;
+        width: 100%; /* Set width to 100% */
+        max-width: 320px; /* Limit maximum width */
+        height: 40px;
+        border-radius: 100px;
+    }
+
+    input[type=text], select, textarea {
+        background-color: transparent;
+        width: calc(100% - 10px); /* Adjusted width for better responsiveness */
+        padding: 1px;
+        border: 2px solid #ccc;
+        border-radius: 20px;
+       
+        color: black;
+        text-align: center;
+    }
+
+    .container-fluid {
+        width: 80%; /* Adjusted width for better responsiveness */
+        margin: auto;
+        color: whitesmoke;
+        background-color: rgb(156, 156, 214);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        padding: 20px 25px;
+        height: 200%;
+    }
+
+    .form-buttons {
+    margin-top: 20px; /* Adjust margin as needed */
+    text-align: center;
+}
+
+.form-buttons .btn {
+    margin: 0 5px; /* Adjust margin between buttons */
+    background-color: transparent;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    border: 1px solid black;
+}
+
+.form-buttons .btn:hover {
+    opacity: 0.6;
+    cursor: pointer;
+    background-color: rgb(219, 161, 161);
+}
+    button {
+        background-color: white;
+        color: black;
+        padding: 10px 20px; /* Adjusted padding for better button appearance */
+        border-radius: 20px;
+        font-size: 12px;
+        margin-left: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.6;
+        cursor: pointer;
+        background-color: black;
+    }
+
+    .snap {
+        margin-left: 20px; /* Adjusted margin for better positioning */
+        height: 190px;
+        width: 310px;
+        background: white;
+        border-radius: 40px;
+    }
+
+    /* Media queries for the responsiveness of the page */
+    @media screen and (max-width: 768px) {
+        .container-fluid {
+            width: 100%; /* Full width on smaller screens */
+        }
+
+        .btn, button {
+            width: 100%; /* Full width buttons on smaller screens */
+             
+        }
+
+        .div1 {
+            padding: 10px; /* Adjusted padding for better spacing */
+        }
+
+        .div2 {
+            padding: 10px; /* Adjusted padding for better spacing */
+        }
+
+        .snap {
+            margin-left: 0; /* Center the camera on smaller screens */
+            margin-top: 20px; /* Added margin for better spacing */
+            width: 100%; /* Full width on smaller screens */
+        }
+    }
+    .camera
+    {
+        text-align: center;
+        margin-top: 900px;
+    }
+    video
+    {
+        border:  2px solid white;
+        border-radius: 25px;
+        margin-bottom: 10px;
+    }
+    .camerabutton
+    {
+        text-align: center;
+    }
+    registrationForm1
+    {
+        margin-left: 600px;
+        
+        padding: 10px;
+        background: transparent;
+    }
+  </style>
+</head>
+<body>
+    <div class="container-fluid" style="font-size: 20px; color:white;">
+        <h1 style="text-align: center;">Visitor registration</h1>
+        <div class="row">
+            <div class="col-sm-6" style="background:transparent">
+                <div class="div1"style=color:white;>
+                    
+                    <form id="registrationForm">
+                        
+                        <div>
+                            <label>Pass Type:</label><br>
+                            <select class="form-select input_field" name="role">
+                                <option value="Single Day">Single Day</option>
+                                <option value="Multiple Days">Multiple Days</option>
+                            </select><br>
+                        </div>
+                            <div>
+                                <label>Valid Day:</label><br>
+                                <input type="text" class="input_field" id="validDayInput" name="validday">
+                            </div>
+
+                            
+
+                            <div>
+                                <label>Category:</label><br>
+                                <select class="form-select input_field" name="category">
+                                    <option value="Software">Software</option>
+                                    <option value="HR">HR</option>
+                                    <option value="IT">IT</option>
+
+                                </select>
+                            </div>
+        
+                            <div>
+                                <label>Dept Name:</label><br>
+                                <select class="form-select input_field" name="department">
+                                    <option value="DevOps">DevOps</option>
+                                    <option value="Python Full Stack">Python Developer</option>
+                                </select>
+                            </div>
+        
+                            <div>
+                                <label>Staff Name:</label><br>
+                                <select class="form-select input_field" name="staffName">
+                                    <option value=""></option>
+                                </select>
+                            </div><br>
+
+
+                            <div>
+                                <label>Visitor Name:</label><br>
+                                <input class="input_field" type="text" id="visitornameInput" name="visitorname">
+                            </div><br>
+        
+                            <div>
+                                <label>Gender:</label><br>
+                                <select class="form-select input_field" name="gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+        
+                            <div>
+                                <label>Company Name:</label><br>
+                                <input class="input_field" type="text" id="companyname" name="companyname">
+                            </div><br>
+                            <div>
+                                <label>Item:</label><br>
+                                <input  class="input_field" type="text" id="companyname" name="companyname">
+                            </div><br>
+                            <div >
+                                <label >Date&Time:</label><br>
+                                <input style=color:black;border-color:white;  type="datetime-local" class="input_field" id="In Date&Time:" name="datepicker">
+                            </div><br>
+                            <div>Badge No:<br>
+                                <input class="input_field" type="text" id="vechicalno" name="vechicalno"></div>
+        
+                            <div>
+                                <label>Address:</label><br>
+                                <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
+                            </div><br>
+                            
+                            
+
+                            <div class="form-buttons"> <!-- Add a div to contain the buttons -->
+                                <button class="btn">Submit</button>
+                                <button class="btn">Reset</button>
+                            </div>
+
+
+                            
+
+                           
+
+                            
+    
+                            
+                        
+                    </form>
+                    <br><br>
+                    
+                </div>
+            </div><br><br>
+            <div class="col-sm-6 camera">
+                <video id="video" width="270" height="200" style="margin-top: 10px;" autoplay></video>
+                <canvas id="canvas" width="270" height="200" style="display: none;"></canvas>
+                <div class="camerabutton">
+                <button type="button" class="btn btn-primary" id="startButton">Start Camera</button>
+                <button type="button" class="btn btn-success" id="captureButton" disabled>Capture</button>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row" id="imageRow" style="display: none;">
+            <div class="col-sm-12">
+                <h2>Captured Image</h2>
+                <img src="" alt="Captured Image" id="capturedImage" style="max-width: 100%;">
+    
+            </div>
+        </div>
+        <div class="row" id="tableRow" style="display: none;">
+            <div class="col-sm-12">
+                <h2>Visitor Details</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Visitor Name</td>
+                            <td id="visitorname"></td>
+    
+                        </tr>
+
+                        <tr>
+                            <td>Gender</td>
+                            <td id="Gender"></td>
+    
+                        </tr>
+                        <tr>
+                            <td>Pass Type</td>
+                            <td id="passType"></td>
+                            
+                        </tr>
+                        <!-- Add other rows for form fields -->
+                        <tr>
+                            <td>Valid Day</td>
+                            <td id="validDay"></td>
+    
+                        </tr>
+                        <tr>
+                            <td>Category</td>
+                            <td id="category"></td>>
+    
+                        </tr>
+                        
+                        <tr>
+                            <td>Department</td>
+                            <td id="department"></td>>
+    
+                        </tr>
+
+                        <tr>
+                            <td>Image</td>
+                            <td><img src="" alt="Captured Image" id="tableImage" style="max-width: 100px;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const startButton = document.getElementById('startButton');
+        const captureButton = document.getElementById('captureButton');
+        const registrationForm = document.getElementById('registrationForm');
+        const imageRow = document.getElementById('imageRow');
+        const capturedImage = document.getElementById('capturedImage');
+        const tableRow = document.getElementById('tableRow');
+        const tablePassType = document.getElementById('passType');
+        const tableCategory = document.getElementById('category'); // Updated ID to match the table cell ID
+
+        const tableValidDay = document.getElementById('validDay'); // Updated ID to match the table cell ID
+
+        const tableImage = document.getElementById('tableImage');
+
+        const tableDepartmentName = document.getElementById('department');
+        
+        const tableVisitorName = document.getElementById('visitorname');
+
+        const tableGender = document.getElementById('Gender');
+        let stream;
+    
+        startButton.addEventListener('click', async () => {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+                startButton.disabled = true;
+                captureButton.disabled = false;
+            } catch (err) {
+                console.error('Error accessing the camera:', err);
+            }
+        });
+    
+        captureButton.addEventListener('click', () => {
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imageDataURL = canvas.toDataURL('image/png');
+    
+            // Display captured image
+            capturedImage.src = imageDataURL;
+            imageRow.style.display = 'block';
+    
+            // Display captured image in table
+            tableImage.src = imageDataURL;
+            tableRow.style.display = 'block';
+    
+            // Accessing form values and updating table
+            const passType = registrationForm.querySelector('select[name="role"]').value;
+            const validDay = registrationForm.querySelector('input[name="validday"]').value;            
+            const category = registrationForm.querySelector('select[name="category"]').value; // Accessing category value correctlyue            
+            const department = registrationForm.querySelector('select[name="department"]').value;
+            const visitorname = registrationForm.querySelector('input[name="visitorname"]').value;
+            const gender = registrationForm.querySelector('select[name=gender]').value;
+
+            // Update table with form values
+            tablePassType.textContent = passType;
+            tableValidDay.textContent = validDay;
+            tableCategory.textContent = category; // Update table with category value
+            tableDepartmentName.textContent = department;
+            tableVisitorName.textContent = visitorname; 
+            tableGender.textContent = gender;                            
+
+        });
+    
+        // Example code to submit form data
+        registrationForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(registrationForm);
+            // Add additional code to send formData to the server
+        });
+    </script>
+    </body>
+    
+</html>
+{% endblock %}

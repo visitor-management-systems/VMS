@@ -1,0 +1,411 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Visitor Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;1,500&family=Salsa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body {
+            font-family: 'Salsa', cursive;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('{% static "images/image.jpg" %}');
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .main {
+            text-align: center;
+        }
+
+        .card {
+            max-width: 800px;
+            border: none;
+            margin-left: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            background-image: url('{% static 'css/images/Rapid-barcode-scanning_reduced.gif' %}');
+        }
+        
+        .dropdown-menu {
+            background-color: white;
+            color: #191970;
+        }
+
+        .dropdown-menu:hover{
+          opacity: 1.9;
+          color: #00008B;
+        }
+        
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card img {
+            object-fit: cover;
+            border-radius: 10px 0 0 10px;
+            background-image: url(presentation\ background-1.jpeg);
+        }
+
+        .card-body {
+            padding: 20px; 
+            color: #000;
+            font-weight:20%;
+            font-size: 130%;
+        }
+
+        .card-title {
+            color: #28a745;
+        }
+
+        footer {
+            background-color: #252525;
+            padding: 5px;
+            text-align: center;
+            bottom: 0;
+            width: 100%;
+            color: beige;
+            border-radius: 10px;
+
+        }
+        .offcanvas {
+  width: 200px;
+  color: #191970;
+}
+
+.navbar {
+    background-color: white;
+    padding: 15px;
+    color: black;
+    text-align: center;
+  }
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+        #goToTop {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #goToTop:hover {
+            background-color: #218838;
+        }
+
+        .material-symbols-outlined {
+        bottom: 380px;
+            right: 20px;
+         font-variation-settings:
+           'FILL' 0,
+           'wght' 400,
+           'GRAD' 0,
+           'opsz' 24
+        }
+        .col-md-4 img{
+            border-radius: 50%;
+        }
+        .footer-content .icon1{
+          border-radius: 50px;
+          background: white;
+          padding: 10px; 
+        
+  
+        }
+
+        .footer-content .icon2{
+        border-radius: 55%;
+        background: white;
+        padding: 10px; 
+  
+        }
+
+        .footer-content .icon3{
+        border-radius: 55%;
+        background: white;
+        padding: 10px; 
+  
+        }
+
+        .footer-content .icon4{
+        border-radius: 55%;
+        background: white;
+        padding: 10px; 
+  
+        }
+
+        .footer-content .icon5{
+        border-radius: 50%;
+        background: white;
+        padding: 10px; 
+  
+        }
+
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <div class="navbar">
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+    ☰
+  </button>
+    <h1 style="color: navyblack; margin-left: 15%;">Visitor Management System</h1>
+          <div class="search-container">
+              <input type="text" placeholder="Search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+          <div class="container-fluid">
+              <a class="sidenav-brand" href="#">
+              </a>
+              <div class="offcanvas offcanvas-start" id="demo">
+                <div class="offcanvas-header">
+                  <h1 class="offcanvas-title">VMS</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                <div class="dropdown">
+          <a style="text-decoration:none;" class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Visitors
+        </a>
+  
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <div class="dropdown-submenu">
+              <button class="btn dropdown-toggle" type="button" id="nestedDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Visitor Registration
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="nestedDropdownButton">
+                <!-- Nested dropdown menu links -->
+                <li><a class="dropdown-item" href="{% url 'visitor_app:visitor_registration' %}">New Visitor</a></li>
+                <li><a class="dropdown-item" href="#">Existing Visitor</a></li>
+              </ul>
+            </div>
+            <li><a class="dropdown-item" href="{% url 'visitor_app:visitor_logout' %}">Visitor Logout</a></li>
+            <div class="dropdown-submenu">
+              <button class="btn dropdown-toggle" type="button" id="nestedDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+              Visitor Details
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="nestedDropdownButton">
+                <!-- Nested dropdown menu links -->
+                <li><a class="dropdown-item" href="#">Single Day</a></li>
+                <li><a class="dropdown-item" href="#">Multiple Day</a></li>
+                
+              </ul>
+          </div>
+          </ul>
+      </div><br>
+                  
+                  <a style="text-decoration:none;" class="side-link" href="{% url 'visitor_app:reports' %}">Reports</a><br><br>
+                
+                  <a style="text-decoration:none;" class="side-link" href="{% url 'visitor_app:postal_service' %}">Postal Service</a><br><br>
+                  
+  
+                <div class="dropdown">
+                  <a style="text-decoration:none;" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    Masters
+                  </a>
+  
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    
+                    <li><a class="dropdown-item" href="{% url 'visitor_app:enterprise' %}">Enterprise Master</a></li>
+                    <li><a class="dropdown-item" href="{% url 'visitor_app:category' %}">Category Master</a></li>
+                    <li><a class="dropdown-item" href="{% url 'visitor_app:department' %}">Department Master</a></li>
+                    <li><a class="dropdown-item" href="{% url 'visitor_app:staff_master' %}">Staff Master</a></li>
+                    <li><a class="dropdown-item" href="{% url 'visitor_app:user_master' %}">User Master</a></li>
+                  </ul>
+                </div>
+                
+                  </ul>
+              </div>
+          </div>
+  </div><br><br>
+  
+      <div class="main">
+          <p style="color: yellow;font-size:20px;margin-right: 10%;">Keep your workforce safe and manage your visitors at any scale with a simple<br>
+              yet effective visitor management system</p>
+      </div><br><br>
+  
+      <div class="card mb-3"style="margin-left: 25%;">
+          <div class="row g-0">
+              <div class="col-md-5">
+                  <img src="Rapid-barcode-scanning_reduced .gif" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-7">
+                  <div class="card-body" >
+                      <h5 class="card-title">Smart Visitor Management</h5>
+                      <p class="card-text">The VMS facilitates efficient visitor registration through self-service kiosks or web portals, providing a seamless experience for both guests and hosts.</p>
+                      
+                  </div>
+              </div>
+          </div>
+      </div><br><br>
+  
+      <div class="card6 mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="scaner.jpeg" class="img-fluid rounded-start" alt="..."width="500" height="500"><span></span>
+  
+            
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"style="color:red;text-decoration:underline">Authentication</h5>
+              <p class="card-text">Define user roles and their corresponding permissions. Typical roles in a VMS might include administrators, receptionists, and regular users. 
+              Assign specific permissions based on the responsibilities of each role.Develop a secure login system with username/email and password authentication.
+              Use strong encryption algorithms to store and compare passwords securely. Implement features like account lockouts after multiple failed login attempts to enhance security.
+              Consider implementing multi-factor authentication for an additional layer of security. This could include using a mobile app, SMS, or email verification in addition to a password.
+              Keep detailed logs of user activities, including login attempts, changes in user roles, and any critical actions performed within the system.
+              Audit trails can help in tracking and analyzing security incidents.<br>Consider integrating your VMS with popular identity providers (IDPs) like 
+              Google, Microsoft, or LDAP for centralized user management. This can simplify user onboarding and reduce the need for separate credentials.
+  
+              Password Recovery:<br>SSL/TLS Encryption:
+              Ensure that all communication between the client and the server is encrypted using SSL/TLS protocols. This prevents data interception during transmission.
+                
+              Regular Security Audits:
+              Conduct regular security audits to identify and address vulnerabilities. This may involve penetration testing and code reviews to ensure the robustness of your authentication system.</p>
+              
+            </div>
+          </div>
+        </div>
+  
+        <BR><BR><BR>
+        <div class="card5 mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="finger.jpeg" class="img-fluid rounded-start" alt="..." width="500" height="500">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body"><br>
+                <h5 class="card-title"style="color:red;text-decoration:underline ">Security</h5>
+                <p class="card-text">Implement encryption mechanisms, such as SSL/TLS, to encrypt data in transit. 
+                  Additionally, use strong encryption algorithms to protect stored data, including personal information of visitors.
+                  Implement a user registration process where administrators can create accounts for users. 
+                  Collect necessary information and validate user details during registration.<br>Access Control:
+                  Implement robust access control mechanisms. Define user roles and permissions to restrict access based on job responsibilities. 
+                  Regularly review and update access privileges to ensure least privilege principles.<br>User Authentication:
+                  Use strong authentication methods for user login. Implement multi-factor authentication (MFA) to add an extra layer of security. 
+                  Store and manage user passwords securely using hashing algorithms.</p>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div><span></span>
+  
+  
+      <span class="material-symbols-outlined" >
+        arrow_upward
+        </span>
+  
+  
+      <button id="goToTop" onclick="scrollToTop()"><span class="material-symbols-outlined" >
+        arrow_upward
+        </span></button>
+      
+      <script>
+          function scrollToTop() {
+              document.body.scrollTop = 0;
+              document.documentElement.scrollTop = 0;
+          }
+  
+          // Show/hide the button based on scroll position
+          window.onscroll = function() {
+              scrollFunction();
+          };
+  
+          function scrollFunction() {
+              if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                  document.getElementById("goToTop").style.display = "block";
+              } else {
+                  document.getElementById("goToTop").style.display = "none";
+              }
+          }
+  
+          // Custom JavaScript to prevent closing the dropdown on nested dropdown click
+          document.querySelectorAll('.dropdown-menu .btn.dropdown-toggle').forEach(function(element) {
+              element.addEventListener('click', function(event) {
+                  event.stopPropagation();
+                  element.nextElementSibling.classList.toggle('show');
+              });
+          });
+   
+          
+      </script>
+      <div class="wpb_single_image wpb_content_element vc_align_center">
+          <h2 class="wpb_heading wpb_singleimage_heading" style="margin-left:450px; color: navy;">Comprehensive Visitor Management Process</h2><br>
+         <figure class="wpb_wrapper vc_figure">
+         <a href="https://www.efacilityvms.com/features-2/" target="_self" class="vc_single_image-wrapper   vc_box_border_grey">
+         <img style="margin-left:90px; margin-bottom: 200px;" width="1300" height="700"src="https://www.efacilityvms.com/wp-content/uploads/2020/11/VMS-Alter-For-Website-1-1536x768-1.gif" class="vc_single_image-img attachment-full" alt="Visitor Management Software" sizes="100vw"/>
+        </a>
+       </figure>
+       </div>
+  
+      
+      
+      
+  
+      <footer style="padding: 10px;">
+      <div class="iq-footer-box">
+        
+        <div class="footer-content" style="display:inline-block; margin-left: 85%;">
+        <h4>Social Media</h4>
+    
+                    <a class="icon1" target="_blank" href="https://www.facebook.com/eFACiLiTY.in/">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                
+                    <a class="icon2" target="_blank" href="https://twitter.com/efacilityin">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                
+                    <a class="icon3" target="_blank" href="https://www.youtube.com/user/sphinxgjg">
+                        <i class="fa fa-youtube-play"></i>
+                    </a>
+                
+                    <a class="icon4" target="_blank" href="https://www.linkedin.com/company/9373952/admin/">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                
+                    <a class="icon5" target="_blank" href="https://www.instagram.com/accounts/login/">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+               
+        </div>
+    </div>
+        <p style="font-size: 20px;">&copy; 2024 Embassy IT Solutions. All rights reserved.</p>
+    </footer>
+  
+      
+        </body>
+  
+
+</html>

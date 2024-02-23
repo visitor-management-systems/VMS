@@ -1,0 +1,60 @@
+/* static/css/styles.css */
+
+/* Reset some default styles for consistency across browsers */
+/* static/css/styles.css */
+
+/* Reset some default styles for consistency across browsers */
+body, h1, h2, h3, p, ul, li, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Salsa', cursive;
+    background-image: url("{%static 'images/image.jpg' %}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+
+.container-fluid {
+    max-width: 130rem;
+    margin: auto;
+    color: whitesmoke;
+    background-color: #3498db; /* Use a shade of blue for consistency */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input_field {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    border: 2px solid #3498db; /* Blue border */
+    border-radius: 5px;
+    color: white;
+}
+
+.button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Add your additional styles based on your specific requirements */
